@@ -1,23 +1,33 @@
- {{!-- Create the template that Handlebars can render onto. --}}
+{{!-- Create the template that Handlebars can render onto. --}}
 {{!-- Create a button that will submit the user input into the database. --}}
 
 <header>
   <div class="row">
     <div class="col-md-12">
-      <h1 align="center">Eat The Burger</h1>
+      <h1 align="center">Burger Devour</h1>
     </div>
   </div>
 </header>
 
+<div class="row">
+  <div class="col-md-12">
+    <p></p>
+  </div>
+</div>
+
 <div class="center">
   <div class="row">
-    <div class="col-md-4">
+
+    <div class="col-md-1"></div>
+
+
+    <div class="col-md-3 container">
       <h2 align="center">Uneaten Burgers</h2>
       <ul align="center">
         {{#each burgers}}
-          {{#unless devoured}}
-            {{> burgers/burger-block devoured=false}}
-          {{/unless}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/unless}}
         {{/each}}
       </ul>
     </div>
@@ -25,27 +35,33 @@
     <div align="center" class="col-md-4">
       <br>
       <br>
-      <img src="/assets/img/burger.png" alt="burger" id="burgerimg">
+      <img src="/assets/img/burger_gif.gif" alt="burger" id="burgerimg">
     </div>
 
 
-    <div class="col-md-4">
+    <div class="col-md-3 container">
       <h2 align="center">Eaten Burgers</h2>
       <ul align="center">
         {{#each burgers}}
-          {{#if devoured}}
-           {{!-- {{burger_name}} --}}
-           {{> burgers/burger-block devoured=true}}
-          {{/if}}
+        {{#if devoured}}
+        {{!-- {{burger_name}} --}}
+        {{> burgers/burger-block devoured=true}}
+        {{/if}}
         {{/each}}
       </ul>
     </div>
+
+    <div class="col-md-1"></div>
+
   </div>
 </div>
 <br>
 <br>
 <div align="center" class="row">
-  <div class="col-md-12">
+
+  <div class="col-md-4"></div>
+
+  <div class="col-md-4 container">
     <h2>Add a Burger</h2>
     <form class="create-form">
 
@@ -54,7 +70,10 @@
         <input type="text" id="burg" name="burger_name">
       </div>
 
-      <button type="submit">Add Burger</button>
+      <button type="submit" id="add">Add Burger</button>
     </form>
   </div>
+
+  <div class="col-md-4"></div>
+
 </div>

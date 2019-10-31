@@ -1,9 +1,8 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
- // Create the methods that will execute the necessary MySQL commands in the controllers. 
- // These are the methods you will need to use in order to retrieve and store data in your database.
-
+// Create the methods that will execute the necessary MySQL commands in the controllers.
+// These are the methods you will need to use in order to retrieve and store data in your database.
 
 // Helper function for SQL syntax.
 // ["?", "?", "?"].toString() => "?,?,?";
@@ -21,17 +20,14 @@ function printQuestionMarks(num) {
 function objToSql(ob) {
   var arr = [];
 
-  // loop through the keys and push the key/value as a string int arr
   for (var key in ob) {
     var value = ob[key];
-    // check to skip hidden properties
+
     if (Object.hasOwnProperty.call(ob, key)) {
-      // if string with spaces, add quotations (big mac => 'big mac')
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = "'" + value + "'";
       }
-      // e.g. {burger_name: 'big mac'} => ["burger_name='big mac'"]
-      // e.g. {devoured: true} => ["devoured=true"]
+
       arr.push(key + "=" + value);
     }
   }
@@ -42,56 +38,53 @@ function objToSql(ob) {
 
 // Object for SQL statement functions
 var orm = {
-	selectAll: function(tableInput, callback) {
-		var queryString = "SELECT * FROM " + tableInput + ";";
-		connection.query(queryString, function(err, result) {
-			if (err) {
-				throw err;
-			} 
-			callback(result);
-		});
-	},
-	insertOne: function(table, cols, vals, callback) {
-		var queryString = "INSERT INTO " + table;
+  selectAll: function(tableInput, callback) {
+    var queryString = "SELECT * FROM " + tableInput + ";";
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
+  insertOne: function(table, cols, vals, callback) {
+    var queryString = "INSERT INTO " + table;
 
-		queryString += " (";
-		queryString += cols.toString();
-		queryString += ") ";
-		queryString += "VALUES (";
-		queryString += printQuestionMarks(vals.length);
-		queryString += ") ";
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
 
-		console.log(queryString);
+    console.log(queryString);
 
-		connection.query(queryString, vals, function(err, result) {
-			if (err) {
-				throw err;
-			}
-			callback(result);
-		});
-	},
-	 // EX objColVals would be {burger_name: big mac, devoured: true}
-	updateOne: function(table, objColVals, condition, callback) {
-		var queryString = "UPDATE " + table;
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  },
 
-		queryString += " SET ";
-		queryString += objToSql(objColVals);
-		queryString += " WHERE ";
-		queryString += condition;
+  updateOne: function(table, objColVals, condition, callback) {
+    var queryString = "UPDATE " + table;
 
-		console.log(queryString);
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
 
-		connection.query(queryString, function(err, result) {
-			if (err) {
-				throw err;
-			}
-			callback(result);
-		});
-	}
+    console.log(queryString);
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      callback(result);
+    });
+  }
 };
-
-
-
 
 // Export the orm object for the model (burger.js).
 module.exports = orm;
