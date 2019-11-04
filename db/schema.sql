@@ -13,8 +13,8 @@
 
 -- devoured: a boolean.
 
-CREATE DATABASE burgers_db;
-USE burgers_db;
+CREATE DATABASE vcl8p17xx1g1z8ht;
+USE vcl8p17xx1g1z8ht;
 
 CREATE TABLE burgers(
     id INT NOT NULL AUTO_INCREMENT, 

@@ -1,6 +1,6 @@
 -- Still in the db folder, create a seeds.sql file. In this file, write insert queries to populate the burgers table with at least three entries.
 
-USE burgers_db;
+USE vcl8p17xx1g1z8ht;
 
 INSERT INTO burgers (burger_name, devoured)
 VALUES 
