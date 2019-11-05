@@ -17,7 +17,7 @@ if(process.env.JAWSDB_URL) {
   })
 };
 
-
+"string literal does nothing"
 
 // Make connection.
 connection.connect(function(err) {
