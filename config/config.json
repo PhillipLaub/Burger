@@ -16,10 +16,10 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "swsf15gvqs4a4jx1",
-    "password": "nne987vojsd7qveu",
-    "database": "vcl8p17xx1g1z8ht",
-    "host": "dyud5fa2qycz1o3v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "kzq105p31vc4etu3",
+    "password": "qqggsxrjru5p8fjk",
+    "database": "p6l2jqmryeuv1cbb",
+    "host": "u28rhuskh0x5paau.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "operatorsAliases": false,
     "use_env_variable":"JAWSDB_URL"
