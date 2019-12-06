@@ -5,6 +5,7 @@
 body {
   background-image: url("/assets/img/burger_bg.png");
   margin-top: 10px;
+  font-family: 'Luckiest Guy', cursive;;
 }
 
 header {
