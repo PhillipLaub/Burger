@@ -2,7 +2,7 @@
 
 ## Deployed Application - https://burger-phillaub.herokuapp.com/
 
-![Screenshot](./public/img/burger_proj.png)
+![Screenshot](./public/assets/img/burger_proj.png)
 
 ## Overview
 
